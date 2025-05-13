@@ -34,11 +34,13 @@ export default function Home() {
   });
 
   return (
-    <main className="flex flex-col items-center justify-center">
-      <ConnectKitButton />
-      <div className="w-1/2 lg:px-4 lg:p-8">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-background text-foreground p-4 sm:p-8">
+      <div className="mb-8">
+        <ConnectKitButton />
+      </div>
+      <div className="w-full max-w-md sm:max-w-lg md:max-w-xl rounded-lg border border-neutral-200 dark:border-neutral-700 shadow-xl p-6 bg-white dark:bg-neutral-800">
         {isLoading || !blink ? (
-          <span>Loading</span>
+          <span className="text-lg font-semibold text-foreground/80">Loading...</span>
         ) : (
           // Blink component, used to execute the action
           <Blink blink={blink} adapter={adapter} securityLevel="all" />
